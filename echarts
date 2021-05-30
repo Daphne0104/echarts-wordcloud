@@ -1,0 +1,39 @@
+ <script type="text/javascript">
+var dom = document.getElementById("main");
+var myChart = echarts.init(dom);
+var app = {};
+
+var option;
+
+
+
+option = {
+     tooltip: {
+        trigger: 'axis',
+        axisPointer: {            // Use axis to trigger tooltip
+            type: 'shadow'        // 'shadow' as default; can also be 'line' or 'shadow'
+        }
+    },
+
+    xAxis: {
+        type: 'category',
+        data :{{ score }}
+        
+{#           不論有多少個值，都可以直接用{{ 變量名}} }} #}
+            {#['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']#}
+    },
+    yAxis: {
+        type: 'value'
+    },
+    series: [{
+        data:{{ num }},
+            {#[120, 200, 150, 80, 70, 110, 130],#}
+        type: 'bar'
+    }]
+};
+
+if (option && typeof option === 'object') {
+    myChart.setOption(option);
+}
+
+        </script>
